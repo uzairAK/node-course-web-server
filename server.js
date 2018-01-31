@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const serverPort = process.env.PORT || 3000;
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials')
@@ -66,7 +68,7 @@ app.get('*', (req,res) => {
     errorMessage: 'Unable to handle request'
   });
 });
-const serverPort = 3000;
+
 app.listen(serverPort, function(){
   console.log(`Server started on ${serverPort}`)
 });
